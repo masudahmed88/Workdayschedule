@@ -30,6 +30,17 @@ textarea {
   border-radius: 15px;
 }
 
+.block-green {
+  color: green;
+}
+
+.block-gray {
+  color: gray;
+}
+
+.block-red {
+  color: red;
+} 
 .row {
   white-space: pre-wrap;
   height: 80px;
