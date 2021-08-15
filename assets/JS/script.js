@@ -2,11 +2,10 @@
 $(document).ready(function () {
     console.log("hey were linked")
 
-    var time = moment().format("H");
+    var time = moment().format("h");
     var today = moment().format("dddd, MMMM Do YYYY");
-
-
-
+    var timeBlocks = $('.container').children('.time-block');
+    var arr = [];
 
     // function to listen for click events on the page
     // grab the saved event options 
@@ -33,22 +32,41 @@ $(document).ready(function () {
     $('#currentTime').text(today);
 
 
-    $('.hour').each(function () {
-        for (var i = 0, arr.length, i++) {
-            if (  == time) {
-                document.querySelector('.time-block');
-                element.classList.add("block-red");
-            } else if (timeBlock > time) {
-                document.querySelector('.time-block');
-                element.classList.add("block-green");
-            } if ($(.hour).innerHTML < time) {
-                document.querySelector('.time-block');
-                element.classList.add("block-gray");
+    timeBlocks.children('.hour').each(function () {
+        arr.push($(this).html());
+        return arr;
+    })
 
-            }
+
+    console.log(time);
+
+
+    for (var i = 0; i < arr.length; i++) {
+        if (i === arr.length) {
+            i = 0;
         }
+        if (arr[i] == time) {
+            if (timeBlocks.is('.block-green'))
+                timeBlocks.removeClass('block-green');
+            if (timeBlocks.is('.block-gray'))
+                timeBlocks.removeClass('block-gray');
+            timeBlocks.addClass("block-red");
+        }
+        else if (arr[i] > time) {
+            if (timeBlocks.is('.block-red'))
+                timeBlocks.removeClass('block-red');
+            if (timeBlocks.is('.block-gray'))
+                timeBlocks.removeClass('block-gray');
+            timeBlocks.addClass("block-green");
+        }
+        else (arr[i] < time)
+        if (timeBlocks.is('.block-green'))
+            timeBlocks.removeClass('block-green');
+        if (timeBlocks.is('.block-red'))
+            timeBlocks.removeClass('block-red');
+        timeBlocks.addClass("block-gray");
     }
-    )
+
 
     // FROM HERE ON WILL BE A SEPERATE FUNCTION
     //function
@@ -77,11 +95,4 @@ $(document).ready(function () {
 
     // DONEST NEED TO BE INSIDE FUNCTION
     // Retrieve LocalStorage and render items to the correct rows 
-
-
-
-
-
-
-
 })

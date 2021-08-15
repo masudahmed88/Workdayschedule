@@ -31,15 +31,15 @@ textarea {
 }
 
 .block-green {
-  color: green;
+  background-color: green;
 }
 
 .block-gray {
-  color: gray;
+  background-color: gray;
 }
 
 .block-red {
-  color: red;
+  background-color: red;
 } 
 .row {
   white-space: pre-wrap;
