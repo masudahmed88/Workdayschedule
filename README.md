@@ -8,4 +8,4 @@ I also need to figure out how to make the user input display after refresh.
 
 I was able to connect the user input into the local storage, and have the UI matching the Acceptance criteria. However due to the lack of time, i am submitting an unfinished product. 
 
-LIVE LINK: https://masudahmed88.github.io/PasswordGenerator/ 
+LIVE LINK: https://masudahmed88.github.io/Workdayschedule/
