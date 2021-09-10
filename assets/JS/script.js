@@ -1,10 +1,10 @@
 //create our document ready function to make sure nothing runs before we load the page. 
 $(document).ready(function () {
-    console.log("hey were linked")
+    console.log("linked")
 
-    var time = moment().format("h");
+    var time = parseInt(moment().format("h"));
     var today = moment().format("dddd, MMMM Do YYYY");
-    var timeBlocks = $('.container').children('.time-block');
+    var timeBlocks = $('container').children('.time-blocks')
     var arr = [];
 
     // function to listen for click events on the page
@@ -24,50 +24,44 @@ $(document).ready(function () {
         $('.notify').addClass('show');
 
         setTimeout(function () {
-            $('.notify').removeClass('show');
+            $('.notify').replace('show');
         }, 5000)
     })
 
 
     $('#currentTime').text(today);
+    console.log("CURRENT TIME",time);
+    function getCurrentTime(){
+        $(".time-block").each(function(){
+            var timeBlockValue = parseInt($(this).attr("value"));
+            console.log(timeBlockValue)
 
+            if(timeBlockValue < time){
+                $(this).addClass("past");
+            } else if(timeBlockValue == time){
+                $(this).removeClass("past");
+                $(this).addClass("present");
+            } else {
+                $(this).removeClass("past");
+                $(this).removeClass("present");
+                $(this).addClass("future");
+            }
+        })
 
-    timeBlocks.children('.hour').each(function () {
-        arr.push($(this).html());
-        return arr;
-    })
-
-
-    console.log(time);
-
-
-    for (var i = 0; i < arr.length; i++) {
-        if (i === arr.length) {
-            i = 0;
-        }
-        if (arr[i] == time) {
-            if (timeBlocks.is('.block-green'))
-                timeBlocks.removeClass('block-green');
-            if (timeBlocks.is('.block-gray'))
-                timeBlocks.removeClass('block-gray');
-            timeBlocks.addClass("block-red");
-        }
-        else if (arr[i] > time) {
-            if (timeBlocks.is('.block-red'))
-                timeBlocks.removeClass('block-red');
-            if (timeBlocks.is('.block-gray'))
-                timeBlocks.removeClass('block-gray');
-            timeBlocks.addClass("block-green");
-        }
-        else (arr[i] < time)
-        if (timeBlocks.is('.block-green'))
-            timeBlocks.removeClass('block-green');
-        if (timeBlocks.is('.block-red'))
-            timeBlocks.removeClass('block-red');
-        timeBlocks.addClass("block-gray");
     }
 
+$("#hour-9 .user-input").val(localStorage.getItem("hour-9"))
+$("#hour-10 .user-input").val(localStorage.getItem("hour-10"))
+$("#hour-11 .user-input").val(localStorage.getItem("hour-11"))
+$("#hour-12 .user-input").val(localStorage.getItem("hour-12"))
+$("#hour-13 .user-input").val(localStorage.getItem("hour-13"))
+$("#hour-14 .user-input").val(localStorage.getItem("hour-14"))
+$("#hour-15 .user-input").val(localStorage.getItem("hour-15"))
+$("#hour-16 .user-input").val(localStorage.getItem("hour-16"))
+$("#hour-17 .user-input").val(localStorage.getItem("hour-17"))
+    
 
+    getCurrentTime();
     // FROM HERE ON WILL BE A SEPERATE FUNCTION
     //function
     // go to moment.js docs to see how to get  current day and TIME
@@ -87,7 +81,7 @@ $(document).ready(function () {
 
     // if else if statement to 
     // check to see if we have passed our time 
-    // check out removeClass and addClass 
+    // check out replaceWith and addClass 
 
     //check to see if current hour matches physical hour
 

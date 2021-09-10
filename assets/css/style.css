@@ -30,15 +30,15 @@ textarea {
   border-radius: 15px;
 }
 
-.block-green {
+.future {
   background-color: green;
 }
 
-.block-gray {
+.past {
   background-color: gray;
 }
 
-.block-red {
+.present {
   background-color: red;
 } 
 .row {
