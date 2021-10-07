@@ -2,16 +2,18 @@
 $(document).ready(function () {
     console.log("linked")
 
-    var time = parseInt(moment().format("h"));
+    
+
+    var time = moment().hours();
     var today = moment().format("dddd, MMMM Do YYYY");
-    var timeBlocks = $('container').children('.time-blocks')
+    var timeBlocks = $('container').children('.time-block')
     var arr = [];
 
     // function to listen for click events on the page
     // grab the saved event options 
     // create vairables to save user input and time 
     $('.save-button').on('click', function () {
-        console.log("hey wer ecliked save button")
+        console.log("clicked save button")
         // Saves the user-input
         var userInput = $(this).siblings(".user-input").val();
         console.log(userInput);
@@ -28,17 +30,18 @@ $(document).ready(function () {
         }, 5000)
     })
 
-
     $('#currentTime').text(today);
+
     console.log("CURRENT TIME",time);
     function getCurrentTime(){
+
         $(".time-block").each(function(){
-            var timeBlockValue = parseInt($(this).attr("value"));
-            console.log(timeBlockValue)
+            var timeBlockValue = parseInt($(this).attr("id").split('-')[1]);
+            console.log("TIME BLOCK VaLUE",timeBlockValue)
 
             if(timeBlockValue < time){
                 $(this).addClass("past");
-            } else if(timeBlockValue == time){
+            } else if(timeBlockValue === time){
                 $(this).removeClass("past");
                 $(this).addClass("present");
             } else {
@@ -46,8 +49,7 @@ $(document).ready(function () {
                 $(this).removeClass("present");
                 $(this).addClass("future");
             }
-        })
-
+        });
     }
 
 $("#hour-9 .user-input").val(localStorage.getItem("hour-9"))
@@ -59,9 +61,10 @@ $("#hour-14 .user-input").val(localStorage.getItem("hour-14"))
 $("#hour-15 .user-input").val(localStorage.getItem("hour-15"))
 $("#hour-16 .user-input").val(localStorage.getItem("hour-16"))
 $("#hour-17 .user-input").val(localStorage.getItem("hour-17"))
-    
-
-    getCurrentTime();
+   
+getCurrentTime();
+})
+   
     // FROM HERE ON WILL BE A SEPERATE FUNCTION
     //function
     // go to moment.js docs to see how to get  current day and TIME
@@ -89,4 +92,4 @@ $("#hour-17 .user-input").val(localStorage.getItem("hour-17"))
 
     // DONEST NEED TO BE INSIDE FUNCTION
     // Retrieve LocalStorage and render items to the correct rows 
-})
+
