@@ -65,31 +65,5 @@ $("#hour-17 .user-input").val(localStorage.getItem("hour-17"))
 getCurrentTime();
 })
    
-    // FROM HERE ON WILL BE A SEPERATE FUNCTION
-    //function
-    // go to moment.js docs to see how to get  current day and TIME
-    // display current date and time in your header
-    // THIS WILL BE YOUR CURRENT TIME VARIABLE
-    //
-    // go to W3 schools and check out the .each method
-    // reference timeblocks
-    // begin testing your current time against the time block to show your past, future, and present
-
-
-    // create time updater function() 
-    // get the current time 
-
-    // create our loop to go over all the time blocks 
-
-
-    // if else if statement to 
-    // check to see if we have passed our time 
-    // check out replaceWith and addClass 
-
-    //check to see if current hour matches physical hour
-
-    //check to see if the time is in the future 
-
-    // DONEST NEED TO BE INSIDE FUNCTION
-    // Retrieve LocalStorage and render items to the correct rows 
+    
 
